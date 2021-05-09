@@ -15,5 +15,6 @@ namespace CadastroAnuncio.Interfaces
         ActionResult Edit(CadastroAnuncioModel cadastroAnuncio);
         ActionResult Delete(int id, CadastroAnuncioModel cadastroAnuncio);
 
+
     }
 }
