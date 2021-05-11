@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -14,8 +15,8 @@ namespace CadastroAnuncio.Models
         public DateTime DataTermino { get; set; }
         public double InvestimentoDia { get; set; }
         public double ValorTotalInvestido { get; set; }
-        public decimal QtdMaxVizualizacao { get; set; }
-        public decimal QtdMaxClique { get; set; }
-        public decimal QtdMaxCompartilhamento { get; set; }
+        public decimal? QtdMaxVizualizacao { get; set; }
+        public decimal? QtdMaxClique { get; set; }
+        public decimal? QtdMaxCompartilhamento { get; set; }
     }
 }
