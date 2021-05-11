@@ -11,7 +11,7 @@ namespace CadastroAnuncio.Interfaces
     public interface ICadastroAnuncioController
     {
 
-        ActionResult Create(CadastroAnuncioModel cadastroAnuncio);
+        ActionResult Create(CadastroAnuncioModel cadastroAnuncio, string nomeAnuncio, string nomeCliente, DateTime dataInicio, DateTime dataTermino, double investimentoDia);
         ActionResult Edit(CadastroAnuncioModel cadastroAnuncio);
         ActionResult Delete(int id, CadastroAnuncioModel cadastroAnuncio);
 

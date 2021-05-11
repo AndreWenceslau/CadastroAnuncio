@@ -1,7 +1,56 @@
-﻿
+﻿@model CadastroAnuncio.Models.CadastroAnuncioModel
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
+<div class="container">
+    <h2>Create</h2>
+    @using (Html.BeginForm("/Create", "CadastroAnuncio", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label id="label-nome-anuncio" for="nome-Anuncio" mas>Nome do Anúncio<span class="text-danger">*</span></label>
+                    <input type="text" id="nome-Anuncio" class="form-control" value="@Model.NomeAnuncio" placeholder="Digite o Nome do Anúncio" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label id="label-nome-cliente" for="nome-cliente" mas>Nome Cliente<span class="text-danger">*</span></label>
+                    <input type="text" id="nome-cliente" class="form-control" value="@Model.NomeCliente" placeholder="Digite o Nome do Ciiente" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label id="label-data-inicio" for="data-inicio" mas>Data de Início do Anúncio<span class="text-danger">*</span></label>
+                    <input type="date" id="data-inicio" class="form-control" value="@Model.DataInicio" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label id="label-data-inicio" for="data-termino" mas>Data de Término do Anúncio<span class="text-danger">*</span></label>
+                    <input type="date" id="data-termino" class="form-control" value="@Model.DataTermino" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label id="label-valor-investido" for="valor-investido" mas>Valor Investido por Dia<span class="text-danger">*</span></label>
+                    <input type="text" id="valor-investido" class="form-control" value="@Model.InvestimentoDia" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-right">
+            @* <button type="button" aling="right" id="btn-cancelar" class="btn btn-danger">Cancelar</button>*@
+            <button type="submit" class="btn btn-success" id="btn-salvar" name="salvar"> Salvar</button>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.mask.min.js"></script>
+    <script src="~/Scripts/CadastroAnuncio/MaskCadastroAnuncio.js"></script>
+}
 
