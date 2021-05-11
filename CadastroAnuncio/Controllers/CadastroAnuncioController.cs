@@ -21,22 +21,31 @@ namespace CadastroAnuncio.Controllers
         // GET: CadastroAnuncio/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View( new CadastroAnuncioModel());
         }
 
         // GET: CadastroAnuncio/Create
         public ActionResult Create()
         {
-            return View();
+            var _cadastroViewModel = new CadastroAnuncioModel();
+
+            return View(_cadastroViewModel);
         }
 
         // POST: CadastroAnuncio/Create
         [HttpPost]
-        public ActionResult Create(CadastroAnuncioModel cadastroAnuncio)
+        public ActionResult Create(CadastroAnuncioModel cadastroAnuncio, string nomeAnuncio, string nomeCliente, DateTime dataInicio, DateTime dataTermino, double investimentoDia)
         {
             try
             {
                 // TODO: Add insert logic here
+                cadastroAnuncio.NomeAnuncio = nomeAnuncio;
+                cadastroAnuncio.NomeCliente = nomeCliente;
+                cadastroAnuncio.DataInicio = dataInicio;
+                cadastroAnuncio.DataTermino = dataTermino;
+                cadastroAnuncio.InvestimentoDia = investimentoDia;
+
+
 
                 return RedirectToAction("Index");
             }
