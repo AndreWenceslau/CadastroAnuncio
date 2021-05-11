@@ -1,56 +1,69 @@
 ﻿@model CadastroAnuncio.Models.CadastroAnuncioModel
+
 @{
     ViewBag.Title = "Create";
 }
 
+<h2>Create</h2>
 
-<div class="container">
-    <h2>Create</h2>
-    @using (Html.BeginForm("/Create", "CadastroAnuncio", FormMethod.Post))
-    {
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>CadastroAnuncioModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label id="label-nome-anuncio" for="nome-Anuncio" mas>Nome do Anúncio<span class="text-danger">*</span></label>
-                    <input type="text" id="nome-Anuncio" class="form-control" value="@Model.NomeAnuncio" placeholder="Digite o Nome do Anúncio" />
+                        @Html.EditorFor(model => model.NomeAnuncio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NomeAnuncio, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label id="label-nome-cliente" for="nome-cliente" mas>Nome Cliente<span class="text-danger">*</span></label>
-                    <input type="text" id="nome-cliente" class="form-control" value="@Model.NomeCliente" placeholder="Digite o Nome do Ciiente" />
+                    <label id="label-nome-anuncio" for="nome-Anuncio" mas>Nome do Cliente<span class="text-danger">*</span></label>
+                        @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="form-group">
-                    <label id="label-data-inicio" for="data-inicio" mas>Data de Início do Anúncio<span class="text-danger">*</span></label>
-                    <input type="date" id="data-inicio" class="form-control" value="@Model.DataInicio" />
+                    <label id="label-nome-anuncio" for="nome-Anuncio" mas>Data do Início<span class="text-danger">*</span></label>
+                        @Html.EditorFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DataInicio, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="form-group">
-                    <label id="label-data-inicio" for="data-termino" mas>Data de Término do Anúncio<span class="text-danger">*</span></label>
-                    <input type="date" id="data-termino" class="form-control" value="@Model.DataTermino" />
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label id="label-valor-investido" for="valor-investido" mas>Valor Investido por Dia<span class="text-danger">*</span></label>
-                    <input type="text" id="valor-investido" class="form-control" value="@Model.InvestimentoDia" />
+                    <label id="label-nome-anuncio" for="nome-Anuncio" mas>Data do Fim<span class="text-danger">*</span></label>
+                        @Html.EditorFor(model => model.DataTermino, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DataTermino, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-        <div class="form-group text-right">
-            @* <button type="button" aling="right" id="btn-cancelar" class="btn btn-danger">Cancelar</button>*@
-            <button type="submit" class="btn btn-success" id="btn-salvar" name="salvar"> Salvar</button>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label id="label-nome-anuncio" for="nome-Anuncio" mas>Investimento Diário<span class="text-danger">*</span></label>
+                        @Html.EditorFor(model => model.InvestimentoDia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.InvestimentoDia, "", new { @class = "text-danger" })
+                </div>
+            </div>
         </div>
-    }
-</div>
 
-@section scripts {
-    <script src="~/Scripts/jquery.mask.min.js"></script>
-    <script src="~/Scripts/CadastroAnuncio/MaskCadastroAnuncio.js"></script>
+        <div class="form-group text-right">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

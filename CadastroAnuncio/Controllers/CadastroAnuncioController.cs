@@ -1,102 +1,128 @@
-﻿using CadastroAnuncio.Interfaces;
-using CadastroAnuncio.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CadastroAnuncio.BancoDados;
+using CadastroAnuncio.Models;
 
 namespace CadastroAnuncio.Controllers
 {
-    public class CadastroAnuncioController : Controller, ICadastroAnuncioController
+    public class CadastroAnuncioController : Controller
     {
+        private CadastroAnuncioContext db = new CadastroAnuncioContext();
+
         // GET: CadastroAnuncio
         public ActionResult Index()
         {
-            return View();
+            return View(db.CadastroAnuncio.ToList());
         }
 
-
-         
         // GET: CadastroAnuncio/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View( new CadastroAnuncioModel());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CadastroAnuncioModel cadastroAnuncioModel = db.CadastroAnuncio.Find(id);
+            if (cadastroAnuncioModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cadastroAnuncioModel);
         }
 
         // GET: CadastroAnuncio/Create
         public ActionResult Create()
         {
-            var _cadastroViewModel = new CadastroAnuncioModel();
-
-            return View(_cadastroViewModel);
+            return View();
         }
 
         // POST: CadastroAnuncio/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(CadastroAnuncioModel cadastroAnuncio, string nomeAnuncio, string nomeCliente, DateTime dataInicio, DateTime dataTermino, double investimentoDia)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,NomeAnuncio,NomeCliente,DataInicio,DataTermino,InvestimentoDia,ValorTotalInvestido,QtdMaxVizualizacao,QtdMaxClique,QtdMaxCompartilhamento")] CadastroAnuncioModel cadastroAnuncioModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-                cadastroAnuncio.NomeAnuncio = nomeAnuncio;
-                cadastroAnuncio.NomeCliente = nomeCliente;
-                cadastroAnuncio.DataInicio = dataInicio;
-                cadastroAnuncio.DataTermino = dataTermino;
-                cadastroAnuncio.InvestimentoDia = investimentoDia;
-
-
-
+                db.CadastroAnuncio.Add(cadastroAnuncioModel);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(cadastroAnuncioModel);
         }
 
         // GET: CadastroAnuncio/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CadastroAnuncioModel cadastroAnuncioModel = db.CadastroAnuncio.Find(id);
+            if (cadastroAnuncioModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cadastroAnuncioModel);
         }
 
         // POST: CadastroAnuncio/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(CadastroAnuncioModel cadastroAnuncion)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,NomeAnuncio,NomeCliente,DataInicio,DataTermino,InvestimentoDia,ValorTotalInvestido,QtdMaxVizualizacao,QtdMaxClique,QtdMaxCompartilhamento")] CadastroAnuncioModel cadastroAnuncioModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(cadastroAnuncioModel).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(cadastroAnuncioModel);
         }
 
         // GET: CadastroAnuncio/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CadastroAnuncioModel cadastroAnuncioModel = db.CadastroAnuncio.Find(id);
+            if (cadastroAnuncioModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cadastroAnuncioModel);
         }
 
         // POST: CadastroAnuncio/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, CadastroAnuncioModel cadastroAnuncio)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            CadastroAnuncioModel cadastroAnuncioModel = db.CadastroAnuncio.Find(id);
+            db.CadastroAnuncio.Remove(cadastroAnuncioModel);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }
