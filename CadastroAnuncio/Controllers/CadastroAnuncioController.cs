@@ -51,6 +51,8 @@ namespace CadastroAnuncio.Controllers
         {
             if (ModelState.IsValid)
             {
+                var dataInicio = cadastroAnuncioModel.DataInicio.Date;
+                cadastroAnuncioModel.DataInicio = dataInicio;
                 db.CadastroAnuncio.Add(cadastroAnuncioModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
