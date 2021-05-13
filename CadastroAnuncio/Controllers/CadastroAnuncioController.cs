@@ -55,7 +55,7 @@ namespace CadastroAnuncio.Controllers
                 var cliqueCompartilhamentos = 6.7;
                 double qtdViewDia = cadastroAnuncioModel.InvestimentoDia * 30;
                 var tempoDoAnuncio = (cadastroAnuncioModel.DataTermino - cadastroAnuncioModel.DataInicio ).Value.TotalDays;
-                cadastroAnuncioModel.QtdMaxClique = (int)(qtdViewDia * tempoDoAnuncio) / viewCliques;
+                cadastroAnuncioModel.QtdMaxClique = (int)(qtdViewDia * tempoDoAnuncio) / (int)viewCliques;
                 var compartilhamentos = (int)cadastroAnuncioModel.QtdMaxClique / (int)cliqueCompartilhamentos;
                 if(cadastroAnuncioModel.QtdMaxClique < cliqueCompartilhamentos)
                 {
