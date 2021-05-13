@@ -74,6 +74,17 @@ namespace CadastroAnuncio.Controllers
                 
                 cadastroAnuncioModel.QtdMaxCompartilhamento = compartilhamentos;
 
+                if (cadastroAnuncioModel.DataInicio < DateTime.Now.Date)
+                {
+                    TempData["mensagemErroDataInicio"] = "Não é possível cadastrar data inferior a de hoje";
+                    return View(cadastroAnuncioModel);
+                }
+                if (cadastroAnuncioModel.DataTermino < cadastroAnuncioModel.DataInicio)
+                {
+                    TempData["mensagemErroDataFIm"] = "Não é possível cadastrar a Data de Termino menor que a de início";
+                    return View(cadastroAnuncioModel);
+                }
+
                 db.CadastroAnuncio.Add(cadastroAnuncioModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
