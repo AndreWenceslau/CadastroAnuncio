@@ -18,15 +18,15 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label id="label-nome-anuncio" for="nome-Anuncio" mas>Nome do Anúncio<span class="text-danger">*</span></label>
-                        @Html.EditorFor(model => model.NomeAnuncio, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NomeAnuncio, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NomeAnuncio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NomeAnuncio, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label id="label-nome-anuncio" for="nome-Anuncio" mas>Nome do Cliente<span class="text-danger">*</span></label>
-                        @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -34,15 +34,19 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label id="label-nome-anuncio" for="nome-Anuncio" mas>Data do Início<span class="text-danger">*</span></label>
-                        @Html.EditorFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DataInicio, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.DataInicio, new { htmlAttributes = new { @class = "form-control" } })
+                    @if (TempData["mensagemErroDataInicio"] != null)
+                    {<div class="field-error"><div class="text-danger"> @TempData["mensagemErroDataInicio"]</div> </div>}
+                    @Html.ValidationMessageFor(model => model.DataInicio, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label id="label-nome-anuncio" for="nome-Anuncio" mas>Data do Fim<span class="text-danger">*</span></label>
-                        @Html.EditorFor(model => model.DataTermino, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DataTermino, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.DataTermino, new { htmlAttributes = new { @class = "form-control" } })
+                    @if (TempData["mensagemErroDataFim"] != null)
+                    {<div class="field-error"><div class="text-danger"> @TempData["mensagemErroDataFim"]</div> </div>}
+                    @Html.ValidationMessageFor(model => model.DataTermino, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -50,8 +54,8 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label id="label-nome-anuncio" for="nome-Anuncio" mas>Investimento Diário<span class="text-danger">*</span></label>
-                        @Html.EditorFor(model => model.InvestimentoDia, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.InvestimentoDia, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.InvestimentoDia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InvestimentoDia, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

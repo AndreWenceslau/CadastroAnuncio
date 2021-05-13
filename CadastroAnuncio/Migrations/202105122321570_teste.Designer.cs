@@ -7,13 +7,13 @@ namespace CadastroAnuncio.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class MigrationTeste : IMigrationMetadata
+    public sealed partial class teste : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MigrationTeste));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(teste));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105121142114_MigrationTeste"; }
+            get { return "202105122321570_teste"; }
         }
         
         string IMigrationMetadata.Source

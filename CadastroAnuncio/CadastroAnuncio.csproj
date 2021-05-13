@@ -134,9 +134,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICadastroAnuncioController.cs" />
-    <Compile Include="Migrations\202105121142114_MigrationTeste.cs" />
-    <Compile Include="Migrations\202105121142114_MigrationTeste.Designer.cs">
-      <DependentUpon>202105121142114_MigrationTeste.cs</DependentUpon>
+    <Compile Include="Migrations\202105122321570_teste.cs" />
+    <Compile Include="Migrations\202105122321570_teste.Designer.cs">
+      <DependentUpon>202105122321570_teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CadastroAnuncioModel.cs" />
@@ -189,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="RegraDeNegocio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -204,8 +205,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105121142114_MigrationTeste.resx">
-      <DependentUpon>202105121142114_MigrationTeste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105122321570_teste.resx">
+      <DependentUpon>202105122321570_teste.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

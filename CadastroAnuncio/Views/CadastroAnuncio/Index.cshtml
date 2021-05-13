@@ -24,19 +24,10 @@
             Término
         </th>
         <th>
-            Valor Investido
+            Valor Investido Dia
         </th>
         <th>
-            Visualizações
-        </th>
-        <th>
-            Cliques
-        </th>
-        <th>
-            Compartilhamentos
-        </th>
-        <th>
-            Ações
+            Ação
         </th>
         <th></th>
     </tr>
@@ -58,18 +49,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.InvestimentoDia)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValorTotalInvestido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdMaxVizualizacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdMaxClique)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdMaxCompartilhamento)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

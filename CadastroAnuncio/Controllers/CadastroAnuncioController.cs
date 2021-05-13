@@ -51,8 +51,40 @@ namespace CadastroAnuncio.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dataInicio = cadastroAnuncioModel.DataInicio.Date;
-                cadastroAnuncioModel.DataInicio = dataInicio;
+                double viewCliques = 8.33;
+                var cliqueCompartilhamentos = 6.7;
+                double qtdViewDia = cadastroAnuncioModel.InvestimentoDia * 30;
+                var tempoDoAnuncio = (cadastroAnuncioModel.DataTermino - cadastroAnuncioModel.DataInicio ).Value.TotalDays;
+                cadastroAnuncioModel.QtdMaxClique = (int)(qtdViewDia * tempoDoAnuncio) / viewCliques;
+                var compartilhamentos = (int)cadastroAnuncioModel.QtdMaxClique / (int)cliqueCompartilhamentos;
+                if(cadastroAnuncioModel.QtdMaxClique < cliqueCompartilhamentos)
+                {
+                    compartilhamentos = 0;
+                }
+                if (compartilhamentos > 4)
+                {
+                    compartilhamentos = 4;
+                }
+                var viewsAdicionais = compartilhamentos * 40;
+                double qtdMaxView = qtdViewDia * tempoDoAnuncio; 
+               // double valorTotalInvestido = cadastroAnuncioModel.InvestimentoDia * tempoDoAnuncio;
+
+                cadastroAnuncioModel.ValorTotalInvestido = cadastroAnuncioModel.InvestimentoDia * tempoDoAnuncio; 
+                cadastroAnuncioModel.QtdMaxVizualizacao = qtdMaxView + viewsAdicionais;
+                
+                cadastroAnuncioModel.QtdMaxCompartilhamento = compartilhamentos;
+
+                if (cadastroAnuncioModel.DataInicio < DateTime.Now.Date)
+                {
+                    TempData["mensagemErroDataInicio"] = "Não é possível cadastrar data inferior a de hoje";
+                    return View(cadastroAnuncioModel);
+                }
+                if (cadastroAnuncioModel.DataTermino < cadastroAnuncioModel.DataInicio)
+                {
+                    TempData["mensagemErroDataFIm"] = "Não é possível cadastrar a Data de Termino menor que a de início";
+                    return View(cadastroAnuncioModel);
+                }
+
                 db.CadastroAnuncio.Add(cadastroAnuncioModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -73,6 +105,7 @@ namespace CadastroAnuncio.Controllers
             {
                 return HttpNotFound();
             }
+            //var dataFormatada = cadastroAnuncioModel.
             return View(cadastroAnuncioModel);
         }
 
