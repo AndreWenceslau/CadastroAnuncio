@@ -52,24 +52,7 @@ namespace CadastroAnuncio.Controllers
         {
             if (ModelState.IsValid)
             {
-                cadastroAnuncioModel.QtdMaxClique = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia) * TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino) / (int)VariaveiFixas.ViewClique;
-                var compartilhamentos = (int)cadastroAnuncioModel.QtdMaxClique / (int)VariaveiFixas.CliqueCompartilhamento;
-                if(cadastroAnuncioModel.QtdMaxClique < VariaveiFixas.CliqueCompartilhamento)
-                {
-                    compartilhamentos = 0;
-                }
-                if (compartilhamentos > 4)
-                {
-                    compartilhamentos = 4;
-                }
-                var viewsAdicionais = compartilhamentos * 40;
-                double qtdMaxView = QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia) * TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino); 
-
-                cadastroAnuncioModel.ValorTotalInvestido = cadastroAnuncioModel.InvestimentoDia * TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino); 
-                cadastroAnuncioModel.QtdMaxVizualizacao = qtdMaxView + viewsAdicionais;
-                
-                cadastroAnuncioModel.QtdMaxCompartilhamento = compartilhamentos;
-
+               
                 if (cadastroAnuncioModel.DataInicio < DateTime.Now.Date)
                 {
                     TempData["mensagemErroDataInicio"] = "Não é possível cadastrar data inferior a de hoje";
@@ -80,11 +63,20 @@ namespace CadastroAnuncio.Controllers
                     TempData["mensagemErroDataFIm"] = "Não é possível cadastrar a Data de Termino menor que a de início";
                     return View(cadastroAnuncioModel);
                 }
-
+                var qtdViewDia = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia);
+                var tempoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
+                cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariaveiFixas.ViewClique;
+                var investimentoDia = cadastroAnuncioModel.InvestimentoDia;
+                var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariaveiFixas.CliqueCompartilhamento);
+                var tempoDoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
+                var viewAdicionais = ViewAdicional.GetViewAdicionais(compartilhamentos);
+                cadastroAnuncioModel.ValorTotalInvestido = investimentoDia * tempoAnuncio; 
+                cadastroAnuncioModel.QtdMaxVizualizacao = qtdViewDia * tempoDoAnuncio + viewAdicionais;
+                cadastroAnuncioModel.QtdMaxCompartilhamento = compartilhamentos;
                 db.CadastroAnuncio.Add(cadastroAnuncioModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            }                                                                   
 
             return View(cadastroAnuncioModel);
         }

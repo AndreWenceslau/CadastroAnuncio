@@ -9,7 +9,7 @@ namespace CadastroAnuncio.RegraDeNegocio
     {
         public static double GetQtdViewDia(double investimentoDia)
         {
-            return investimentoDia * 30;
+            return investimentoDia * VariaveiFixas.ViewPorUmReal;
         }
     }
 }

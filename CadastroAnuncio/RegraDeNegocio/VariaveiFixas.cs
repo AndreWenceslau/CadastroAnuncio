@@ -15,5 +15,14 @@ namespace CadastroAnuncio.RegraDeNegocio
         {
             get { return 6.7; }
         }
+
+        public static int ViewPorUmReal
+        {
+            get { return 30; }
+        }
+        public static int ViewPorCompartilhamneto
+        {
+            get { return 40; }
+        }
     }
 }
