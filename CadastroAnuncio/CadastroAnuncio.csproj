@@ -141,6 +141,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CadastroAnuncioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegraDeNegocio\QtdViewDia.cs" />
+    <Compile Include="RegraDeNegocio\TempoDoAnuncio.cs" />
+    <Compile Include="RegraDeNegocio\VariaveiFixas.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -189,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="RegraDeNegocio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

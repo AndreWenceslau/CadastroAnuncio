@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CadastroAnuncio.BancoDados;
 using CadastroAnuncio.Models;
+using CadastroAnuncio.RegraDeNegocio;
 
 namespace CadastroAnuncio.Controllers
 {
@@ -51,13 +52,9 @@ namespace CadastroAnuncio.Controllers
         {
             if (ModelState.IsValid)
             {
-                double viewCliques = 8.33;
-                var cliqueCompartilhamentos = 6.7;
-                double qtdViewDia = cadastroAnuncioModel.InvestimentoDia * 30;
-                var tempoDoAnuncio = (cadastroAnuncioModel.DataTermino - cadastroAnuncioModel.DataInicio ).Value.TotalDays;
-                cadastroAnuncioModel.QtdMaxClique = (int)(qtdViewDia * tempoDoAnuncio) / viewCliques;
-                var compartilhamentos = (int)cadastroAnuncioModel.QtdMaxClique / (int)cliqueCompartilhamentos;
-                if(cadastroAnuncioModel.QtdMaxClique < cliqueCompartilhamentos)
+                cadastroAnuncioModel.QtdMaxClique = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia) * TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino) / (int)VariaveiFixas.ViewClique;
+                var compartilhamentos = (int)cadastroAnuncioModel.QtdMaxClique / (int)VariaveiFixas.CliqueCompartilhamento;
+                if(cadastroAnuncioModel.QtdMaxClique < VariaveiFixas.CliqueCompartilhamento)
                 {
                     compartilhamentos = 0;
                 }
@@ -66,10 +63,9 @@ namespace CadastroAnuncio.Controllers
                     compartilhamentos = 4;
                 }
                 var viewsAdicionais = compartilhamentos * 40;
-                double qtdMaxView = qtdViewDia * tempoDoAnuncio; 
-               // double valorTotalInvestido = cadastroAnuncioModel.InvestimentoDia * tempoDoAnuncio;
+                double qtdMaxView = QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia) * TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino); 
 
-                cadastroAnuncioModel.ValorTotalInvestido = cadastroAnuncioModel.InvestimentoDia * tempoDoAnuncio; 
+                cadastroAnuncioModel.ValorTotalInvestido = cadastroAnuncioModel.InvestimentoDia * TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino); 
                 cadastroAnuncioModel.QtdMaxVizualizacao = qtdMaxView + viewsAdicionais;
                 
                 cadastroAnuncioModel.QtdMaxCompartilhamento = compartilhamentos;
