@@ -192,6 +192,7 @@
     <Content Include="Views\CadastroAnuncio\Delete.cshtml" />
     <Content Include="Views\CadastroAnuncio\Details.cshtml" />
     <Content Include="Views\CadastroAnuncio\Edit.cshtml" />
+    <Content Include="Views\CadastroAnuncio\Relatorio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

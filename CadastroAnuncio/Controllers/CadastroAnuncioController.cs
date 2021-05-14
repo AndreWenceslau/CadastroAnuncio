@@ -22,6 +22,11 @@ namespace CadastroAnuncio.Controllers
             return View(db.CadastroAnuncio.ToList());
         }
 
+        public ActionResult Relatorio()
+        {
+            return View(db.CadastroAnuncio.ToList());
+        }
+
         // GET: CadastroAnuncio/Details/5
         public ActionResult Details(int? id)
         {
