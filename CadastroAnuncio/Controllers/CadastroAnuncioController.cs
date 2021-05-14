@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CadastroAnuncio.BancoDados;
 using CadastroAnuncio.Models;
 using CadastroAnuncio.RegraDeNegocio;
+using Rotativa;
 
 namespace CadastroAnuncio.Controllers
 {
@@ -24,7 +25,7 @@ namespace CadastroAnuncio.Controllers
 
         public ActionResult Relatorio()
         {
-            return View(db.CadastroAnuncio.ToList());
+            return new ViewAsPdf(db.CadastroAnuncio.ToList());
         }
 
         // GET: CadastroAnuncio/Details/5

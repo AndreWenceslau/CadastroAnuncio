@@ -2,71 +2,65 @@
 
 @{
     ViewBag.Title = "Relatorio";
+    Layout = "";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"content="width=device-width"/>
+    <title>Cadastro de Anúncios</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="col-md-12 text-center">
+        <h3>Cadastro Anúncios</h3>
+        <table class="table">
+            <tr>
+                <th>
+                    Nome Cliente
+                </th>
 
-<h2>Relatorio</h2>
+                <th>
+                   Total Investido
+                </th>
+                <th>
+                   Visualizações
+                </th>
+                <th>
+                    Cliques
+                </th>
+                <th>
+                    Compartilhamentos
+                </th>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataInicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataTermino)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.ValorTotalInvestido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QtdMaxVizualizacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QtdMaxClique)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QtdMaxCompartilhamento)
-        </th>
-        <th></th>
-    </tr>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataTermino)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.ValorTotalInvestido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdMaxVizualizacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdMaxClique)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdMaxCompartilhamento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
 
-</table>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeCliente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorTotalInvestido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QtdMaxVizualizacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QtdMaxClique)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QtdMaxCompartilhamento)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+
+
