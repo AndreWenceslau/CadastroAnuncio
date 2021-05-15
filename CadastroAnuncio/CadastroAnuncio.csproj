@@ -196,6 +196,7 @@
     <Content Include="Views\CadastroAnuncio\Details.cshtml" />
     <Content Include="Views\CadastroAnuncio\Edit.cshtml" />
     <Content Include="Views\CadastroAnuncio\Relatorio.cshtml" />
+    <Content Include="Views\CadastroAnuncio\_Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

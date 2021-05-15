@@ -20,8 +20,19 @@ namespace CadastroAnuncio.Controllers
         // GET: CadastroAnuncio
         public ActionResult Index()
         {
-            return View(db.CadastroAnuncio.ToList());
+            return View();
         }
+
+        public PartialViewResult Listar(int pagina = 1, int registros =1)
+        {
+            var anuncios = db.CadastroAnuncio;
+            var anunciosPaginado = anuncios.OrderBy(x => x.NomeAnuncio).Skip((pagina - 1)* registros).Take(5);
+            int quantidadePaginasAnuncios = anunciosPaginado.Count();
+            
+            return PartialView("_Listar", anunciosPaginado.ToList());
+        }
+
+
 
         public ActionResult Relatorio()
         {
@@ -145,13 +156,13 @@ namespace CadastroAnuncio.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

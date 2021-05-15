@@ -1,5 +1,4 @@
-﻿@model IEnumerable<CadastroAnuncio.Models.CadastroAnuncioModel>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
@@ -9,53 +8,21 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Anúncio
-        </th>
-        <th>
-            Cliente
-        </th>
-        <th>
-            Início
-        </th>
-        <th>
-            Término
-        </th>
-        <th>
-            Valor Investido Dia
-        </th>
-        <th>
-            Ação
-        </th>
-        <th></th>
-    </tr>
+@*@Html.Action("Listar", new { pagina = 2, registros = 10 });*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeAnuncio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeCliente)
-        </td>
-        <td>
-           @Html.DisplayFor(modelItem => item.DataInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataTermino)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InvestimentoDia)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<div id="listagemDeAnuncios"></div>
+
+
+@section scripts{
+    <script type="text/javascript">
+
+        $(document).ready(configurarController);
+        function configurarController() {
+
+            $("#listagemDeAnuncios").load("@Url.Action("Listar")");
+        }
+    </script>
 }
 
-</table>
+
+
