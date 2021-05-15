@@ -23,12 +23,11 @@ namespace CadastroAnuncio.Controllers
             return View();
         }
 
-        public PartialViewResult Listar(int pagina = 1, int registros =1)
+        public PartialViewResult Listar(int pagina = 1, int registros = 5)
         {
             var anuncios = db.CadastroAnuncio;
-            var anunciosPaginado = anuncios.OrderBy(x => x.NomeAnuncio).Skip((pagina - 1)* registros).Take(5);
+            var anunciosPaginado = anuncios.OrderBy(x => x.NomeAnuncio).Skip((pagina - 1)* registros).Take(registros);
             int quantidadePaginasAnuncios = anunciosPaginado.Count();
-            
             return PartialView("_Listar", anunciosPaginado.ToList());
         }
 

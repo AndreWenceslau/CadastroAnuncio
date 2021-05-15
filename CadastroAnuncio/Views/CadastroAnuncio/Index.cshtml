@@ -18,8 +18,14 @@
 
         $(document).ready(configurarController);
         function configurarController() {
-
             $("#listagemDeAnuncios").load("@Url.Action("Listar")");
+        }
+        var pagina = 1;
+
+        function paginar(valor) {
+                var paginaNova = pagina + valor;
+                $("#listagemDeAnuncios").load("@Url.Action("Listar")", { pagina: paginaNova });
+                pagina = paginaNova;
         }
     </script>
 }
