@@ -21,5 +21,13 @@ namespace CadastroAnuncio.Models
         public double? QtdMaxVizualizacao { get; set; }
         public double? QtdMaxClique { get; set; }
         public double? QtdMaxCompartilhamento { get; set; }
+        public string FiltroNomeCliente { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? FIltroDataTermino { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? FiltroDataInicio { get; set; }
+
     }
 }

@@ -3,12 +3,23 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Anúncios</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@*@Html.Action("Listar", new { pagina = 2, registros = 10 });*@
+<div class="row">
+    <div class="text-right">
+        <div class="btn btn-default">
+            @Html.ActionLink("Gerar Relatório", "Relatorio", new { @class = "btn btn-primary" })
+
+            
+
+        </div>
+        <div class="btn btn-default">
+            @Html.ActionLink("Novo cadastro", "Create")
+        </div>
+
+    </div>
+</div>
+
 
 <div id="listagemDeAnuncios"></div>
 

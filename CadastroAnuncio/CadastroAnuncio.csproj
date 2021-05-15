@@ -134,9 +134,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICadastroAnuncioController.cs" />
-    <Compile Include="Migrations\202105122321570_teste.cs" />
-    <Compile Include="Migrations\202105122321570_teste.Designer.cs">
-      <DependentUpon>202105122321570_teste.cs</DependentUpon>
+    <Compile Include="Migrations\202105151120384_CadastroAnuncioMigration.cs" />
+    <Compile Include="Migrations\202105151120384_CadastroAnuncioMigration.Designer.cs">
+      <DependentUpon>202105151120384_CadastroAnuncioMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CadastroAnuncioModel.cs" />
@@ -203,6 +203,7 @@
     <Content Include="Views\CadastroAnuncio\Edit.cshtml" />
     <Content Include="Views\CadastroAnuncio\Relatorio.cshtml" />
     <Content Include="Views\CadastroAnuncio\_Listar.cshtml" />
+    <Content Include="Views\CadastroAnuncio\Filtro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -221,15 +222,15 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105122321570_teste.resx">
-      <DependentUpon>202105122321570_teste.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Rotativa\Rotativa.csproj">
       <Project>{d93faa11-31f0-4629-b53c-aa8680283529}</Project>
       <Name>Rotativa</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105151120384_CadastroAnuncioMigration.resx">
+      <DependentUpon>202105151120384_CadastroAnuncioMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

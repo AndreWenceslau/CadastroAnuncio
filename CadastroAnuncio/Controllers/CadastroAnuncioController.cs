@@ -26,15 +26,37 @@ namespace CadastroAnuncio.Controllers
         public PartialViewResult Listar(int pagina = 1, int registros = 5)
         {
             var anuncios = db.CadastroAnuncio;
-            var anunciosPaginado = anuncios.OrderBy(x => x.NomeAnuncio).Skip((pagina - 1)* registros).Take(registros);
+            var anunciosPaginado = anuncios.OrderBy(x => x.NomeAnuncio).Skip((pagina - 1) * registros).Take(registros);
             int quantidadePaginasAnuncios = anunciosPaginado.Count();
             return PartialView("_Listar", anunciosPaginado.ToList());
         }
-
-
-
-        public ActionResult Relatorio()
+        public ActionResult Filtro()
         {
+            return View();
+        }
+
+        public ActionResult Relatorio(CadastroAnuncioModel cadastroAnuncioModel, string filtroNomeCliente, DateTime? filtroDataInicio, DateTime? filtroDataFim)
+        {
+            //ViewBag.filtroNomeCliente = filtroNomeCliente;
+
+            //List<CadastroAnuncioModel> listaCadastroAnuncioModels = new List<CadastroAnuncioModel>();
+            //ViewBag.filtroNomeCliente = filtroNomeCliente;
+            //ViewBag.filtroDataInicio = filtroDataInicio;
+            //ViewBag.filtroDataFim = filtroDataFim;
+
+            //var listaCadastroAnuncio = (from CadastroAnuncioModel in db.CadastroAnuncio
+            //                            where CadastroAnuncioModel.NomeCliente == filtroNomeCliente && CadastroAnuncioModel.DataInicio >= filtroDataInicio && CadastroAnuncioModel.DataInicio <= filtroDataFim
+            //                            orderby CadastroAnuncioModel.NomeCliente
+            //                            select new
+            //                            {
+            //                                CadastroAnuncioModel.NomeCliente,
+            //                                CadastroAnuncioModel.ValorTotalInvestido,
+            //                                CadastroAnuncioModel.QtdMaxVizualizacao,
+            //                                CadastroAnuncioModel.QtdMaxClique,
+            //                                CadastroAnuncioModel.QtdMaxCompartilhamento
+
+            //                            }).ToList();
+
             return new ViewAsPdf(db.CadastroAnuncio.ToList());
         }
 
