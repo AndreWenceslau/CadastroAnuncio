@@ -1,0 +1,40 @@
+﻿@model CadastroAnuncio.Models.CadastroAnuncioModel
+@{
+    ViewBag.Title = "Filtro";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label id="label-nome-anuncio" for="nome-Anuncio" mas>Nome do Cliente<span class="text-danger">*</span></label>
+            @Html.EditorFor(model => model.FiltroNomeCliente, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FiltroNomeCliente, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label id="label-nome-anuncio" for="nome-Anuncio" mas>Data do Início<span class="text-danger">*</span></label>
+            @Html.EditorFor(model => model.FiltroDataInicio, new { htmlAttributes = new { @class = "form-control" } })
+            @if (TempData["mensagemErroDataInicio"] != null)
+            {<div class="field-error"><div class="text-danger"> @TempData["mensagemErroDataInicio"]</div> </div>}
+            @Html.ValidationMessageFor(model => model.FiltroDataInicio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label id="label-nome-anuncio" for="nome-Anuncio" mas>Data do Fim<span class="text-danger">*</span></label>
+            @Html.EditorFor(model => model.FIltroDataTermino, new { htmlAttributes = new { @class = "form-control" } })
+            @if (TempData["mensagemErroDataFim"] != null)
+            {<div class="field-error"><div class="text-danger"> @TempData["mensagemErroDataFim"]</div> </div>}
+            @Html.ValidationMessageFor(model => model.FIltroDataTermino, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+<div class="col-sm-offser-2 col sm-10">
+    @Html.ActionLink("Gerar Relatório", "Relatorio")
+
+</div>
+}
+

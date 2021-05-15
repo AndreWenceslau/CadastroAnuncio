@@ -45,9 +45,8 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Apagar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
@@ -57,49 +56,14 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item" id="item-anterior-fornecedores">
-                <a class="page-link" href="#" onclick="Paginar(-1)">Anterior</a>
+                <a class="page-link" href="#" onclick="paginar(-1)">Anterior</a>
             </li>
             <li class="page-item" id="item-proximo-fornecedores">
-                <a class="page-link" href="#" onclick="Paginar(1)">Próximo</a>
+                <a class="page-link" href="#" onclick="paginar(1)">Próximo</a>
             </li>
         </ul>
     </nav>
 </div>
 
-@*@{
-        if (Model.TotalItemCount != Model.Count)
-        {
-            <div class="row">
-                <div class="col-md-12">
-                    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
 
-                    @if (Model.HasPreviousPage)
-                    {
-                        @Html.ActionLink("<<", "RelatorioPedidos", new { pagina = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
-                        @Html.Raw(" ");
-                        @Html.ActionLink("< Anterior", "RelatorioPedidos", new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
-                    }
-                    else
-                    {
-                        @:<<
-                        @Html.Raw(" ");
-                        @:< Anterior
-                    }
-
-                    @if (Model.HasNextPage)
-                    {
-                        @Html.ActionLink("Próxima >", "RelatorioPedidos", new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
-                        @Html.Raw(" ");
-                        @Html.ActionLink(">>", "RelatorioPedidos", new { pagina = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
-                    }
-                    else
-                    {
-                        @:Próxima >
-                        @Html.Raw(" ")
-                        @:>>
-                    }
-                </div>
-            </div>
-        }
-    }*@
 
