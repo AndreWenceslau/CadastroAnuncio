@@ -129,7 +129,6 @@
     <Compile Include="BancoDados\CadastroAnuncioContexto.cs" />
     <Compile Include="BancoDados\CadastroAnuncioInit.cs" />
     <Compile Include="Controllers\CadastroAnuncioController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,14 +188,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CadastroAnuncio\Index.cshtml" />
     <Content Include="Views\CadastroAnuncio\Create.cshtml" />
     <Content Include="Views\CadastroAnuncio\Delete.cshtml" />
-    <Content Include="Views\CadastroAnuncio\Details.cshtml" />
-    <Content Include="Views\CadastroAnuncio\Edit.cshtml" />
     <Content Include="Views\CadastroAnuncio\Relatorio.cshtml" />
     <Content Include="Views\CadastroAnuncio\_Listar.cshtml" />
     <Content Include="Views\CadastroAnuncio\Filtro.cshtml" />
