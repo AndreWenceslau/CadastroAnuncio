@@ -35,7 +35,7 @@ namespace CadastroAnuncio.Controllers
             return View();
         }
 
-        public ActionResult Relatorio(CadastroAnuncioModel cadastroAnuncioModel, string filtroNomeCliente, DateTime? filtroDataInicio, DateTime? filtroDataFim)
+        public ActionResult Relatorio()
         {
             return new ViewAsPdf(db.CadastroAnuncio.ToList());
         }
@@ -156,14 +156,5 @@ namespace CadastroAnuncio.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
     }
 }
