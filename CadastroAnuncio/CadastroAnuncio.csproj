@@ -140,8 +140,8 @@
     <Compile Include="RegraDeNegocio\QtdViewDia.cs" />
     <Compile Include="RegraDeNegocio\TempoDoAnuncio.cs" />
     <Compile Include="RegraDeNegocio\TotalCompartilhamento.cs" />
-    <Compile Include="RegraDeNegocio\ValidacoesCompoData.cs" />
-    <Compile Include="RegraDeNegocio\VariaveiFixas.cs" />
+    <Compile Include="RegraDeNegocio\ValidacoesCampoData.cs" />
+    <Compile Include="RegraDeNegocio\VariavelFixa.cs" />
     <Compile Include="RegraDeNegocio\ViewAdicional.cs" />
   </ItemGroup>
   <ItemGroup>

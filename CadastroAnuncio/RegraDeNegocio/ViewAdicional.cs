@@ -9,7 +9,7 @@ namespace CadastroAnuncio.RegraDeNegocio
     {
         public static double GetViewAdicionais (double compartilhamentos)
         {
-            return compartilhamentos * VariaveiFixas.ViewPorCompartilhamneto;
+            return compartilhamentos * VariavelFixa.ViewPorCompartilhamneto;
         }
     }
 }

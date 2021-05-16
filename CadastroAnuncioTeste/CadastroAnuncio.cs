@@ -46,8 +46,8 @@ namespace CadastroAnuncioTeste
             var qtdViewDia = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia);
             var tempoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
             var tempoDoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
-            cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariaveiFixas.ViewClique;
-            var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariaveiFixas.CliqueCompartilhamento);
+            cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariavelFixa.ViewClique;
+            var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariavelFixa.CliqueCompartilhamento);
             var viewAdicionais = ViewAdicional.GetViewAdicionais(compartilhamentos);
             cadastroAnuncioModel.QtdMaxVizualizacao = qtdViewDia * tempoDoAnuncio + viewAdicionais;
 
@@ -71,8 +71,8 @@ namespace CadastroAnuncioTeste
             var qtdViewDia = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia);
             var tempoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
             var tempoDoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
-            cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariaveiFixas.ViewClique;
-            var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariaveiFixas.CliqueCompartilhamento);
+            cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariavelFixa.ViewClique;
+            var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariavelFixa.CliqueCompartilhamento);
             var viewAdicionais = ViewAdicional.GetViewAdicionais(compartilhamentos);
             cadastroAnuncioModel.QtdMaxVizualizacao = qtdViewDia * tempoDoAnuncio + viewAdicionais;
 
@@ -96,8 +96,8 @@ namespace CadastroAnuncioTeste
             var qtdViewDia = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia);
             var tempoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
             var tempoDoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
-            cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariaveiFixas.ViewClique;
-            var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariaveiFixas.CliqueCompartilhamento);
+            cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariavelFixa.ViewClique;
+            var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariavelFixa.CliqueCompartilhamento);
             var viewAdicionais = ViewAdicional.GetViewAdicionais(compartilhamentos);
             cadastroAnuncioModel.QtdMaxVizualizacao = qtdViewDia * tempoDoAnuncio + viewAdicionais;
             cadastroAnuncioModel.QtdMaxCompartilhamento = compartilhamentos;
