@@ -126,7 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BancoDados\CadastroAnuncioContext.cs" />
+    <Compile Include="BancoDados\CadastroAnuncioContexto.cs" />
     <Compile Include="BancoDados\CadastroAnuncioInit.cs" />
     <Compile Include="Controllers\CadastroAnuncioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -134,10 +134,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICadastroAnuncioController.cs" />
-    <Compile Include="Migrations\202105151120384_CadastroAnuncioMigration.cs" />
-    <Compile Include="Migrations\202105151120384_CadastroAnuncioMigration.Designer.cs">
-      <DependentUpon>202105151120384_CadastroAnuncioMigration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CadastroAnuncioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -226,11 +222,6 @@
       <Project>{d93faa11-31f0-4629-b53c-aa8680283529}</Project>
       <Name>Rotativa</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105151120384_CadastroAnuncioMigration.resx">
-      <DependentUpon>202105151120384_CadastroAnuncioMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

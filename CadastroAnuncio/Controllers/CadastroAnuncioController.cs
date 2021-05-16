@@ -15,7 +15,7 @@ namespace CadastroAnuncio.Controllers
 {
     public class CadastroAnuncioController : Controller
     {
-        private CadastroAnuncioContext db = new CadastroAnuncioContext();
+        private CadastroAnuncioContexto db = new CadastroAnuncioContexto();
 
         // GET: CadastroAnuncio
         public ActionResult Index()

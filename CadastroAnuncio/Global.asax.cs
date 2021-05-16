@@ -20,7 +20,7 @@ namespace CadastroAnuncio
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer <CadastroAnuncioContext>(new CadastroAnuncioInit());
+            Database.SetInitializer <CadastroAnuncioContexto>(new CadastroAnuncioInit());
         }
     }
 }

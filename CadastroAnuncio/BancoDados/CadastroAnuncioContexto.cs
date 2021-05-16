@@ -8,7 +8,7 @@ using System.Web;
 
 namespace CadastroAnuncio.BancoDados
 {
-    public class CadastroAnuncioContext: DbContext
+    public class CadastroAnuncioContexto: DbContext
     {
         public DbSet<CadastroAnuncioModel> CadastroAnuncio { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
