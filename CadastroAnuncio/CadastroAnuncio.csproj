@@ -194,10 +194,9 @@
     <Content Include="Views\CadastroAnuncio\Relatorio.cshtml" />
     <Content Include="Views\CadastroAnuncio\_Listar.cshtml" />
     <Content Include="Views\CadastroAnuncio\Filtro.cshtml" />
+    <Content Include="Views\CadastroAnuncio\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
