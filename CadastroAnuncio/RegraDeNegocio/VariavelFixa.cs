@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CadastroAnuncio.RegraDeNegocio
 {
-    public static class VariaveiFixas
+    public static class VariavelFixa
     {
         public static double ViewClique
         {

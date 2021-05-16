@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CadastroAnuncio.RegraDeNegocio
 {
-    public class ValidacoesCompoData
+    public class ValidacoesCampoData
     {
     }
 }

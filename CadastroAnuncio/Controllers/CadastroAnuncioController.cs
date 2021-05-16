@@ -37,26 +37,6 @@ namespace CadastroAnuncio.Controllers
 
         public ActionResult Relatorio(CadastroAnuncioModel cadastroAnuncioModel, string filtroNomeCliente, DateTime? filtroDataInicio, DateTime? filtroDataFim)
         {
-            //ViewBag.filtroNomeCliente = filtroNomeCliente;
-
-            //List<CadastroAnuncioModel> listaCadastroAnuncioModels = new List<CadastroAnuncioModel>();
-            //ViewBag.filtroNomeCliente = filtroNomeCliente;
-            //ViewBag.filtroDataInicio = filtroDataInicio;
-            //ViewBag.filtroDataFim = filtroDataFim;
-
-            //var listaCadastroAnuncio = (from CadastroAnuncioModel in db.CadastroAnuncio
-            //                            where CadastroAnuncioModel.NomeCliente == filtroNomeCliente && CadastroAnuncioModel.DataInicio >= filtroDataInicio && CadastroAnuncioModel.DataInicio <= filtroDataFim
-            //                            orderby CadastroAnuncioModel.NomeCliente
-            //                            select new
-            //                            {
-            //                                CadastroAnuncioModel.NomeCliente,
-            //                                CadastroAnuncioModel.ValorTotalInvestido,
-            //                                CadastroAnuncioModel.QtdMaxVizualizacao,
-            //                                CadastroAnuncioModel.QtdMaxClique,
-            //                                CadastroAnuncioModel.QtdMaxCompartilhamento
-
-            //                            }).ToList();
-
             return new ViewAsPdf(db.CadastroAnuncio.ToList());
         }
 
@@ -103,9 +83,9 @@ namespace CadastroAnuncio.Controllers
                 }
                 var qtdViewDia = (int)QtdViewDia.GetQtdViewDia(cadastroAnuncioModel.InvestimentoDia);
                 var tempoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
-                cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariaveiFixas.ViewClique;
+                cadastroAnuncioModel.QtdMaxClique = qtdViewDia * tempoAnuncio / (int)VariavelFixa.ViewClique;
                 var investimentoDia = cadastroAnuncioModel.InvestimentoDia;
-                var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariaveiFixas.CliqueCompartilhamento);
+                var compartilhamentos = TotalCompartilhamento.GetCompartilhamentos(cadastroAnuncioModel.QtdMaxClique, VariavelFixa.CliqueCompartilhamento);
                 var tempoDoAnuncio = TempoDoAnuncio.GetTempoDoAnuncio(cadastroAnuncioModel.DataInicio, cadastroAnuncioModel.DataTermino);
                 var viewAdicionais = ViewAdicional.GetViewAdicionais(compartilhamentos);
                 cadastroAnuncioModel.ValorTotalInvestido = investimentoDia * tempoAnuncio; 
