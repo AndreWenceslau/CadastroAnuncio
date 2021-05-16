@@ -23,7 +23,7 @@ namespace CadastroAnuncio.BancoDados
                     ValorTotalInvestido = 100,
                     QtdMaxVizualizacao = 3160,
                     QtdMaxClique = 360,
-                    QtdMaxCompartilhamento = 54
+                    QtdMaxCompartilhamento = 4
 
                 } ,
 
@@ -37,7 +37,7 @@ namespace CadastroAnuncio.BancoDados
                     ValorTotalInvestido = 100,
                     QtdMaxVizualizacao = 3160,
                     QtdMaxClique = 360,
-                    QtdMaxCompartilhamento = 54
+                    QtdMaxCompartilhamento = 4
 
                 },
                  new CadastroAnuncioModel()
@@ -50,7 +50,7 @@ namespace CadastroAnuncio.BancoDados
                     ValorTotalInvestido = 100,
                     QtdMaxVizualizacao = 3160,
                     QtdMaxClique = 360,
-                    QtdMaxCompartilhamento = 54
+                    QtdMaxCompartilhamento = 4
 
                 }
             };
