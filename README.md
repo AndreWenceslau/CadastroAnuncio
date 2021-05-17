@@ -9,6 +9,12 @@ Desafio Capgemini
  Na Solution Explorer > Clique com o botão direito no CadastroAnuncio > Add > Add ASP.Net Folder > App_Data. 
 - 4 - Execute a Aplicação:
   Use o atalho: Ctrl + F5, ou clique em: IIS Express.
+## Instruções de Utilização
+- Cadastrar Anúncio:
+  Clique no botão: Novo Cadastro > Preencha todos os campos > Clique em Criar.
+- Gerar Relatório:
+  Clique no Botão Gerar Relatório > Após gerar o reletório é possivel fazer o download do mesmo cliquando em: Fazer Download
+ 
  
   
   
